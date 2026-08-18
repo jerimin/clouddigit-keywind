@@ -35,7 +35,7 @@
       />
     </#if>
     <div class="flex justify-center">
-    <span class="bg-primary-100 text-primary-700 text-xs font-semibold px-3 py-1 rounded-full tracking-wide uppercase">
+    <span class="bg-primary-100 text-primary-700 text-xs font-semibold px-3 py-1 rounded-full tracking-wide">
       ${msg("betaBadge")}
     </span>
   </div>
