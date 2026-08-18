@@ -34,7 +34,7 @@
         name=auth.attemptedUsername
       />
     </#if>
-    <div class="flex justify-center">
+    <div class="flex justify-center -mt-1">
     <span class="bg-primary-100 text-primary-700 text-xs font-semibold px-3 py-1 rounded-full tracking-wide">
       ${msg("betaBadge")}
     </span>
