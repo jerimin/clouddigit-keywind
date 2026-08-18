@@ -1,6 +1,23 @@
 import type { Config } from 'tailwindcss';
 import colors from 'tailwindcss/colors';
 
+// Cloud Digit brand scale.
+// 400/500/600 are pinned to the tokens in the hand-authored login styles.css:
+//   --cd-accent-2: #fbad41   --cd-accent: #f6821f   --cd-accent-hover: #ff6633
+const clouddigit = {
+  50: '#fff7ed',
+  100: '#ffedd5',
+  200: '#fed7aa',
+  300: '#fdba74',
+  400: '#fbad41',
+  500: '#f6821f',
+  600: '#ff6633',
+  700: '#c2410c',
+  800: '#9a3412',
+  900: '#7c2d12',
+  950: '#431407',
+};
+
 export default {
   content: ['./theme/**/*.ftl'],
   experimental: {
@@ -10,7 +27,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: colors.blue,
+        primary: clouddigit,
         secondary: colors.gray,
 
         provider: {
