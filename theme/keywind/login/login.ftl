@@ -42,6 +42,7 @@
           value=(login.username)!''
         />
         <@input.kw
+          autocomplete="current-password"
           invalid=messagesPerField.existsError("username", "password")
           label=msg("password")
           name="password"
