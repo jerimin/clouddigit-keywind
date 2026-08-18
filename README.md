@@ -64,11 +64,14 @@ Copy changes (title, tagline, beta wording, copyright) need only the messages fi
 
 ## Gotchas — read before editing
 
-- **TypeScript is pinned to `5.5.4`.** Upstream keywind does not compile on TS ≥ 5.7:
-  `src/data/webAuthnRegister.ts` fails with
-  `TS2322 Uint8Array<ArrayBufferLike> is not assignable to BufferSource`, because TS 5.7
-  made `Uint8Array` generic. keywind declares `^5.2.2`, so an unpinned `npm install`
-  floats to a broken version. Do not "modernise" this pin without fixing that file.
+- **WebAuthn types and TypeScript >= 5.7.** TS 5.7 made `Uint8Array` generic, so
+  `base64url.parse()` (typed `Uint8Array<ArrayBufferLike>`) stopped satisfying `BufferSource`
+  and upstream keywind no longer compiles. This fork wraps those values in `new Uint8Array(...)`
+  so they are ArrayBuffer-backed — submitted upstream as
+  [lukin/keywind#113](https://github.com/lukin/keywind/pull/113). **There is no TypeScript pin**;
+  builds resolve the latest 5.x. If you sync from upstream and the build breaks with
+  `TS2322 Uint8Array<ArrayBufferLike> is not assignable to BufferSource`, re-apply that fix
+  rather than pinning TypeScript.
 
 - **Vite writes to `theme/keywind/login/resources/dist/`, not `login/dist/`.**
   `theme.properties` says `styles=dist/index.css` because Keycloak resolves style paths
@@ -123,7 +126,8 @@ Modifications made in this fork:
 - `theme/keywind/login/login.ftl` — `autocomplete="current-password"`
 - `theme/keywind/login/messages/messages_en.properties` — added (not present upstream)
 - `src/index.css` — brand focus rings, safe-area insets, touch-target minimums
-- `package.json` — pinned TypeScript to 5.5.4
+- `src/data/webAuthn{Register,Authenticate}.ts` — ArrayBuffer-backed `BufferSource`
+  values so the project builds on TypeScript >= 5.7 (upstream PR #113)
 - `Dockerfile`, `.github/workflows/build-theme.yml` — added for the image build
 
 Upstream keywind is © its authors; Cloud Digit branding and copy are © Cloud Digit.
