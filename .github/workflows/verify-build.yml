@@ -1,0 +1,17 @@
+name: verify-build
+on:
+  push:
+    branches: [fix/webauthn-buffersource-ts57]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - run: npm install --no-audit --no-fund
+      - name: Show resolved TypeScript (must be >= 5.7 for this to be a real test)
+        run: npx tsc --version
+      - run: npm run build
