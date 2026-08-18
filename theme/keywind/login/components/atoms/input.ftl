@@ -29,6 +29,7 @@
           class="${class}"
           id="${name}"
           name="${name}"
+          enterkeyhint="go"
           placeholder="${label}"
           :type="show ? 'text' : 'password'"
 
@@ -40,7 +41,8 @@
           @click="show = !show"
           aria-controls="${name}"
           :aria-expanded="show"
-          class="absolute text-secondary-400 right-3 top-3 sm:top-2"
+          aria-label="Show password"
+          class="absolute inset-y-0 right-0 flex items-center justify-center w-12 text-secondary-400 rounded-r-md focus:outline-none focus:ring-2 focus:ring-primary-200"
           type="button"
         >
           <div x-show="!show">
@@ -58,10 +60,14 @@
         <#if required>required</#if>
 
         aria-invalid="${invalid?c}"
+        autocapitalize="none"
+        autocorrect="off"
         class="${class}"
+        enterkeyhint="next"
         id="${name}"
         name="${name}"
         placeholder="${label}"
+        spellcheck="false"
         type="${type}"
 
         <#list rest as attrName, attrValue>
