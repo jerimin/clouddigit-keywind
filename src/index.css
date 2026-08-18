@@ -31,3 +31,31 @@
     @apply mr-2;
   }
 }
+
+/* Cloud Digit: @tailwindcss/forms hardcodes a blue-600 focus ring on inputs,
+   which leaves blue rings on an otherwise orange theme. Re-point it at the
+   brand scale so focus states match buttons and links. */
+@layer base {
+  [type='text']:focus,
+  [type='email']:focus,
+  [type='password']:focus,
+  [type='number']:focus,
+  [type='tel']:focus,
+  [type='url']:focus,
+  [type='search']:focus,
+  select:focus,
+  textarea:focus {
+    --tw-ring-color: theme('colors.primary.500');
+    border-color: theme('colors.primary.500');
+  }
+
+  [type='checkbox']:focus,
+  [type='radio']:focus {
+    --tw-ring-color: theme('colors.primary.500');
+  }
+
+  [type='checkbox']:checked,
+  [type='radio']:checked {
+    background-color: theme('colors.primary.500');
+  }
+}
