@@ -61,14 +61,8 @@
 }
 
 /* ===========================================================================
-   Cloud Digit - mobile ergonomics and colour-scheme support
+   Cloud Digit - mobile ergonomics
    =========================================================================== */
-
-/* Advertise both schemes so native controls (scrollbars, date pickers, the
-   password reveal glyph) render to match rather than staying stuck in light. */
-:root {
-  color-scheme: light dark;
-}
 
 /* Respect notches and rounded displays. */
 body {
@@ -88,43 +82,3 @@ body {
 
 /* Follow the visitor's OS preference. Scoped to the surfaces this theme uses
    so it cannot leak into provider icons or the brand button. */
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #101013;
-    color: #e4e4e7;
-  }
-
-  .bg-white {
-    background-color: #1b1b1f;
-  }
-
-  input,
-  select,
-  textarea {
-    background-color: #232327;
-    border-color: #3f3f46;
-    color: #f4f4f5;
-  }
-
-  input::placeholder {
-    color: #8a8a8e;
-  }
-
-  .text-secondary-500,
-  .text-secondary-600,
-  .text-secondary-700,
-  .text-secondary-800,
-  .text-secondary-900 {
-    color: #d4d4d8;
-  }
-
-  .border-secondary-200,
-  .border-secondary-300 {
-    border-color: #3f3f46;
-  }
-
-  .separate::after,
-  .separate::before {
-    border-color: #3f3f46;
-  }
-}
