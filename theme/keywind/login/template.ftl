@@ -34,7 +34,12 @@
         name=auth.attemptedUsername
       />
     </#if>
-  </#assign>
+    <div class="flex justify-center">
+    <span class="bg-primary-100 text-primary-700 text-xs font-semibold px-3 py-1 rounded-full tracking-wide uppercase">
+      ${msg("betaBadge")}
+    </span>
+  </div>
+</#assign>
 
   <#assign cardContent>
     <#if displayMessage && message?has_content && (message.type != "warning" || !isAppInitiatedAction??)>
@@ -78,6 +83,14 @@
             <@localeProvider.kw currentLocale=locale.current locales=locale.supported />
           </#if>
         </@nav.kw>
+        <div class="space-y-1 text-center">
+          <p class="text-secondary-500 text-xs">
+            ${msg("betaNotice")}
+          </p>
+          <p class="text-secondary-400 text-xs">
+            ${msg("copyrightNotice")}
+          </p>
+        </div>
       </@container.kw>
     </@body.kw>
   </html>
