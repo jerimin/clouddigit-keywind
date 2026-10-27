@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Cloud Digit">
+  <circle cx="32" cy="32" r="10.5" fill="none" stroke="#f6821f" stroke-width="6"/>
+  <g fill="none" stroke-width="6" stroke-linecap="round">
+    <path d="M22 12 A10 10 0 0 1 12 22" stroke="#d6336c"/><path d="M42 12 A10 10 0 0 0 52 22" stroke="#f2b705"/>
+    <path d="M12 42 A10 10 0 0 1 22 52" stroke="#7c3aed"/><path d="M42 52 A10 10 0 0 1 52 42" stroke="#0e9f6e"/>
+  </g>
+</svg>
