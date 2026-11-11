@@ -4,7 +4,7 @@
 <#macro
   kw
   autofocus=false
-  class="block border-secondary-200 mt-1 rounded-md w-full focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 sm:text-sm"
+  class="block bg-field border-line-strong text-ink-strong placeholder:text-ink-faint mt-1 rounded-control shadow-cd-xs w-full sm:text-sm"
   disabled=false
   invalid=false
   label=""
@@ -42,7 +42,7 @@
           aria-controls="${name}"
           :aria-expanded="show"
           aria-label="Show password"
-          class="absolute inset-y-0 right-0 flex items-center justify-center w-12 text-secondary-400 rounded-r-md focus:outline-none focus:ring-2 focus:ring-primary-200"
+          class="absolute inset-y-0 right-0 flex items-center justify-center w-12 text-ink-faint hover:text-ink-muted rounded-r-control focus:outline-none focus-visible:shadow-cd-ring"
           type="button"
         >
           <div x-show="!show">
@@ -76,7 +76,7 @@
       >
     </#if>
     <#if invalid?? && message??>
-      <div class="mt-2 text-red-600 text-sm">
+      <div class="mt-2 text-danger text-sm">
         ${message?no_esc}
       </div>
     </#if>

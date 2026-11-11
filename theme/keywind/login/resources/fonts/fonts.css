@@ -1,0 +1,22 @@
+/* Cloud Digit UI fonts, self-hosted (no third-party font request).
+   Variable latin subsets from jerimin/clouddigit-brand fonts/. Both are licensed
+   under the SIL Open Font License 1.1; the licence texts sit beside the files
+   (OFL-plusjakartasans.txt, OFL-jetbrainsmono.txt) and must ship with them.
+   Loaded by theme.properties before dist/index.css; kept out of the Vite build
+   so the URLs stay relative to this folder. */
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url('plus-jakarta-sans-latin.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 100 800;
+  font-display: swap;
+  src: url('jetbrains-mono-latin.woff2') format('woff2');
+}

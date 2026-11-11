@@ -35,7 +35,7 @@
       />
     </#if>
     <div class="flex justify-center -mt-1">
-    <span class="bg-primary-100 text-primary-700 text-xs font-semibold px-3 py-1 rounded-full tracking-wide">
+    <span class="bg-accent-soft border border-accent-line text-accent text-xs font-semibold px-2.5 py-0.5 rounded-chip tracking-wide">
       ${msg("betaBadge")}
     </span>
   </div>
@@ -49,7 +49,7 @@
     </#if>
     <#nested "form">
     <#if displayRequiredFields>
-      <p class="text-secondary-600 text-sm">
+      <p class="text-ink-muted text-sm">
         * ${msg("requiredFields")}
       </p>
     </#if>
@@ -84,10 +84,10 @@
           </#if>
         </@nav.kw>
         <div class="space-y-1 text-center">
-          <p class="text-secondary-500 text-xs">
+          <p class="text-ink-muted text-xs">
             ${msg("betaNotice")}
           </p>
-          <p class="text-secondary-400 text-xs">
+          <p class="text-ink-faint text-xs">
             ${msg("copyrightNotice")}
           </p>
         </div>

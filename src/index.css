@@ -2,6 +2,143 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ===========================================================================
+   Cloud Digit UI tokens - the same names and values as the tenant portal
+   (design.css) and jerimin/clouddigit-brand BRAND.md "UI tokens". Light is the
+   default; dark follows the visitor's OS setting (prefers-color-scheme).
+   tailwind.config.ts maps the utilities (bg-surface, text-ink-muted, ...) here.
+   =========================================================================== */
+
+@layer base {
+  :root {
+    color-scheme: light;
+
+    --cd-canvas: #F4F3F7;
+    --cd-surface: #FFFFFF;
+    --cd-surface-2: #F8F7FA;
+    --cd-hover: #F3F2F6;
+    --cd-press: #ECEBF0;
+    --cd-field: var(--cd-surface);
+    --cd-line: #E4E3E9;
+    --cd-line-strong: #CFCDD6;
+
+    --cd-text: #3A3842;
+    --cd-text-strong: #17161C;
+    --cd-text-muted: #5E5C66;
+    --cd-text-faint: #6A6873;
+
+    --cd-link: #A94706;
+    --cd-link-hover: #8A3A05;
+    --cd-accent-text: #A94706;
+    --cd-accent-soft: #FFF5EC;
+    --cd-accent-line: #FDCFA9;
+
+    /* Primary button: gradient over the solid, as in the portal. White on #C45308 = 4.58:1. */
+    --cd-btn-grad: linear-gradient(135deg, #A94706, #C45308);
+    --cd-btn-bg: #C45308;
+    --cd-btn-border: #B04B07;
+    --cd-btn-fg: #FFFFFF;
+    --cd-btn-hover: #A94706;
+    --cd-btn-active: #8A3A05;
+    --cd-btn-sheen: 0 1px 2px rgba(138, 58, 5, .25), inset 0 1px 0 rgba(255, 255, 255, .14);
+    --cd-btn-glow: 0 8px 20px -8px rgba(196, 83, 8, .65);
+    --cd-btn-glow-2: 0 12px 28px -8px rgba(196, 83, 8, .8);
+
+    --cd-ring: 0 0 0 3px rgba(246, 130, 31, .32);
+
+    --cd-success: #15803D;
+    --cd-success-bg: #EAF7EF;
+    --cd-success-line: #B6E2C6;
+    --cd-success-text: #14532D;
+    --cd-warning: #B45309;
+    --cd-warning-bg: #FEF4E6;
+    --cd-warning-line: #F8D49B;
+    --cd-warning-text: #78350F;
+    --cd-danger: #C42424;
+    --cd-danger-bg: #FDEDED;
+    --cd-danger-line: #F5BDBD;
+    --cd-danger-text: #7F1D1D;
+    --cd-info: #0E7490;
+    --cd-info-bg: #E7F6FA;
+    --cd-info-line: #A9DDEA;
+    --cd-info-text: #164E63;
+
+    --cd-shadow-xs: 0 1px 2px rgba(23, 22, 28, .06);
+    --cd-shadow-sm: 0 1px 2px rgba(23, 22, 28, .05), 0 2px 6px -2px rgba(23, 22, 28, .08);
+    --cd-shadow-lg: 0 4px 8px -4px rgba(23, 22, 28, .08), 0 24px 48px -12px rgba(23, 22, 28, .24);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+
+      --cd-canvas: #0F0E13;
+      --cd-surface: #18171E;
+      --cd-surface-2: #1D1C24;
+      --cd-hover: #24232B;
+      --cd-press: #2C2A34;
+      --cd-field: var(--cd-surface-2);
+      --cd-line: #2C2A34;
+      --cd-line-strong: #3D3B46;
+
+      --cd-text: #D9D7DF;
+      --cd-text-strong: #F4F3F7;
+      --cd-text-muted: #B4B1BC;
+      --cd-text-faint: #9C99A5;
+
+      --cd-link: #FF9B45;
+      --cd-link-hover: #FFB37A;
+      --cd-accent-text: #FFA45A;
+      --cd-accent-soft: rgba(246, 130, 31, .13);
+      --cd-accent-line: rgba(246, 130, 31, .38);
+
+      --cd-btn-grad: linear-gradient(135deg, #FB9A47, #F6821F);
+      --cd-btn-bg: #F6821F;
+      --cd-btn-border: #F6821F;
+      --cd-btn-fg: #17161C;
+      --cd-btn-hover: #FB9A47;
+      --cd-btn-active: #E0731A;
+      --cd-btn-sheen: 0 1px 2px rgba(0, 0, 0, .4), inset 0 1px 0 rgba(255, 255, 255, .18);
+      --cd-btn-glow: 0 8px 22px -8px rgba(246, 130, 31, .6);
+      --cd-btn-glow-2: 0 12px 30px -8px rgba(246, 130, 31, .8);
+
+      --cd-ring: 0 0 0 3px rgba(246, 130, 31, .45);
+
+      --cd-success: #4ADE80;
+      --cd-success-bg: #0F2A1A;
+      --cd-success-line: #1E5A36;
+      --cd-success-text: #86EFAC;
+      --cd-warning: #FBBF24;
+      --cd-warning-bg: #2B200A;
+      --cd-warning-line: #6B4E0C;
+      --cd-warning-text: #FCD34D;
+      --cd-danger: #F87171;
+      --cd-danger-bg: #2D1214;
+      --cd-danger-line: #6E2326;
+      --cd-danger-text: #FCA5A5;
+      --cd-info: #22D3EE;
+      --cd-info-bg: #0A2830;
+      --cd-info-line: #155E6E;
+      --cd-info-text: #67E8F9;
+
+      --cd-shadow-xs: 0 1px 2px rgba(0, 0, 0, .4);
+      --cd-shadow-sm: 0 1px 2px rgba(0, 0, 0, .35), 0 2px 6px -2px rgba(0, 0, 0, .4);
+      --cd-shadow-lg: 0 4px 8px -4px rgba(0, 0, 0, .4), 0 24px 48px -12px rgba(0, 0, 0, .7);
+    }
+  }
+
+  body {
+    background-color: var(--cd-canvas);
+    color: var(--cd-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  a {
+    text-underline-offset: .18em;
+  }
+}
+
 @layer components {
   /* Alpine.js
     ======================================================================== */
@@ -20,7 +157,7 @@
   .separate::after,
   .separate::before {
     content: '';
-    @apply border-b border-secondary-200 flex-1;
+    @apply border-b border-line flex-1;
   }
 
   .separate:not(:empty)::after {
@@ -30,11 +167,57 @@
   .separate:not(:empty)::before {
     @apply mr-2;
   }
+
+  /* Buttons - the portal's .btn-primary / .btn-secondary
+    ======================================================================== */
+
+  .cd-btn-primary {
+    border: 1px solid transparent;
+    background-color: var(--cd-btn-bg);
+    background-image: var(--cd-btn-grad);
+    background-origin: border-box;
+    color: var(--cd-btn-fg);
+    box-shadow: var(--cd-btn-sheen), var(--cd-btn-glow);
+    transition: background-color .15s ease, box-shadow .15s ease;
+  }
+
+  .cd-btn-primary:hover {
+    background-image: none;
+    background-color: var(--cd-btn-hover);
+    box-shadow: var(--cd-btn-sheen), var(--cd-btn-glow-2);
+  }
+
+  .cd-btn-primary:active {
+    background-image: none;
+    background-color: var(--cd-btn-active);
+  }
+
+  .cd-btn-secondary {
+    border: 1px solid var(--cd-line-strong);
+    background-color: var(--cd-surface);
+    color: var(--cd-text-strong);
+    box-shadow: var(--cd-shadow-xs);
+    transition: background-color .15s ease, box-shadow .15s ease;
+  }
+
+  .cd-btn-secondary:hover {
+    background-color: var(--cd-hover);
+  }
+
+  .cd-btn-secondary:active {
+    background-color: var(--cd-press);
+  }
+
+  .cd-btn-primary:focus-visible,
+  .cd-btn-secondary:focus-visible {
+    outline: none;
+    box-shadow: var(--cd-ring);
+  }
 }
 
-/* Cloud Digit: @tailwindcss/forms hardcodes a blue-600 focus ring on inputs,
-   which leaves blue rings on an otherwise orange theme. Re-point it at the
-   brand scale so focus states match buttons and links. */
+/* Cloud Digit: @tailwindcss/forms hardcodes blue-600 focus rings, white field
+   backgrounds and a white check mark. Re-point them at the tokens so form
+   controls match the portal in both colour schemes. */
 @layer base {
   [type='text']:focus,
   [type='email']:focus,
@@ -45,18 +228,49 @@
   [type='search']:focus,
   select:focus,
   textarea:focus {
-    --tw-ring-color: theme('colors.primary.500');
-    border-color: theme('colors.primary.500');
+    /* The action colour, not ember-500: #F6821F on white is 2.58:1, below the
+       3:1 a focus indicator needs. Dark mode resolves this to #F6821F. */
+    border-color: var(--cd-btn-bg);
+    box-shadow: var(--cd-ring);
+  }
+
+  /* The plugin fills the checked state with currentColor. */
+  [type='checkbox'],
+  [type='radio'] {
+    color: var(--cd-btn-bg);
   }
 
   [type='checkbox']:focus,
   [type='radio']:focus {
-    --tw-ring-color: theme('colors.primary.500');
+    box-shadow: var(--cd-ring);
   }
 
-  [type='checkbox']:checked,
-  [type='radio']:checked {
-    background-color: theme('colors.primary.500');
+  @media (prefers-color-scheme: dark) {
+    /* Ink mark on the ember fill, like the dark primary button (white on #F6821F is 2.58:1). */
+    [type='checkbox']:checked {
+      background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='%2317161C' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+    }
+
+    [type='radio']:checked {
+      background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='%2317161C' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
+    }
+
+    /* Artwork with dark ink switches to its reversed colours on the dark card:
+       the brand lockup (values from lockups/horizontal-outlined-reversed.svg)
+       and the one-colour GitHub, Apple and PayPal provider marks. */
+    .cd-lockup path[fill='#17161c'] {
+      fill: #FFFFFF;
+    }
+
+    .cd-lockup path[fill='#6a6873'] {
+      fill: #A3A1AA;
+    }
+
+    [data-provider='github'] svg path,
+    [data-provider='apple'] svg path,
+    [data-provider='paypal'] svg path {
+      fill: var(--cd-text-strong);
+    }
   }
 }
 
@@ -79,6 +293,3 @@ body {
     min-height: 2.75rem;
   }
 }
-
-/* Follow the visitor's OS preference. Scoped to the surfaces this theme uses
-   so it cannot leak into provider icons or the brand button. */

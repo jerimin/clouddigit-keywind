@@ -1,7 +1,7 @@
 <#import "/assets/providers/providers.ftl" as providerIcons>
 
 <#macro kw providers=[]>
-  <div class="pt-4 separate text-secondary-600 text-sm">
+  <div class="pt-4 separate text-ink-muted text-sm">
     ${msg("identity-provider-login-label")}
   </div>
   <div class="gap-4 grid grid-cols-3">
@@ -59,11 +59,11 @@
           <#assign colorClass="hover:bg-provider-twitter/10">
           <#break>
         <#default>
-          <#assign colorClass="hover:bg-secondary-100">
+          <#assign colorClass="hover:bg-surface-hover">
       </#switch>
 
       <a
-        class="${colorClass} border border-secondary-200 flex justify-center py-2 rounded-lg hover:border-transparent"
+        class="${colorClass} bg-surface border border-line-strong flex justify-center py-2 rounded-control shadow-cd-xs focus:outline-none focus-visible:shadow-cd-ring"
         data-provider="${provider.alias}"
         href="${provider.loginUrl}"
         type="button"
